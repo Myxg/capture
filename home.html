@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <!-- <link rel="stylesheet" href="./css/ewChart.min.css"> -->
+    <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+    <script type="text/javascript" src="js/highcharts.js"></script>
+    <script type="text/javascript" src="js/gray.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <title>训练监控</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: #ccc0c0;
+        }
+        
+        .box {
+            border-radius: 15px;
+            border: 1px #fff solid;
+            box-shadow: 1px 1px 1px #0f0c0c;
+            margin: 25px auto;
+            background-color: #ffffff;
+            text-align: center;
+            width: 90%;
+            height: 94vh;
+        }
+        
+        button {
+            width: 10%;
+            height: 50px;
+            margin: 0px 10px;
+            border-radius: 15px;
+        }
+        
+        #box1 {
+            width: 90%;
+            height: 83%;
+            /* border: 1px #000 solid; */
+            margin: 5px auto;
+        }
+        
+        #box2 {
+            width: 90%;
+            height: 83%;
+            /* border: 1px #000 solid; */
+            margin: 5px auto;
+        }
+        
+        #box3 {
+            width: 90%;
+            height: 83%;
+            /* border: 1px #000 solid; */
+            margin: 5px auto;
+        }
+        
+        #box4 {
+            width: 90%;
+            height: 83%;
+            /* border: 1px #000 solid; */
+            margin: 5px auto;
+        }
+        
+        #box5 {
+            width: 90%;
+            height: 83%;
+            /* border: 1px #000 solid; */
+            margin: 5px auto;
+        }
+        
+        #box6 {
+            width: 90%;
+            height: 83%;
+            /* border: 1px #000 solid; */
+            margin: 5px auto;
+        }
+        
+        #box7 {
+            width: 90%;
+            height: 83%;
+            /* border: 1px #000 solid; */
+            margin: 5px auto;
+        }
+        
+        #box8 {
+            width: 90%;
+            height: 83%;
+            /* border: 1px #000 solid; */
+            margin: 5px auto;
+        }
+        
+        .distribution {
+            float: left;
+            width: 305px;
+            height: 670px;
+            margin: 10px 30px;
+            border: 3px #000 solid;
+        }
+        
+        .text {
+            margin: 10px 50px;
+            float: right;
+            width: 60%;
+            height: 700px;
+            background-color: #fff;
+        }
+        
+        .player {
+            width: 100%;
+            height: 100px;
+            font-size: 25px;
+            line-height: 100px;
+            margin: 10px auto;
+            /* background-color: blueviolet; */
+        }
+        
+        table {
+            /* background-color: antiquewhite; */
+            width: 100%;
+            height: 200px;
+            border-right: 1px solid #000;
+            border-bottom: 1px solid #000;
+        }
+        
+        table td {
+            border-left: 1px solid #000;
+            border-top: 1px solid #000;
+        }
+        
+        .column {
+            width: 100%;
+            height: 360px;
+            background-color: #fff;
+            margin-top: 20px;
+        }
+        
+        .chart {
+            width: 48%;
+        }
+        /* .column2 {
+            width: 100%;
+            height: 360px;
+            background-color: #fff;
+            margin-top: 20px;
+        } */
+    </style>
+</head>
+
+<body>
+    <div class="box">
+        <h1>训练监控</h1>
+        <button id="btn1">一号场地</button>
+        <button id="btn2">二号场地</button>
+        <button id="btn3">三号场地</button>
+        <button id="btn4">四号场地</button>
+        <button id="btn5">五号场地</button>
+        <button id="btn6">六号场地</button>
+        <button id="btn7">七号场地</button>
+        <button id="btn8">八号场地</button>
+        <div id="box1" style="display: block;">
+            <div class="distribution" style="background-image: url(./playground_1.jpg);">
+
+            </div>
+            <div class="text">
+                <div class="player">
+                    a vs b
+                </div>
+                <table>
+                    <tr>
+                        <td style="width: 20%;">统计</td>
+                        <td>a1</td>
+                        <td>a2</td>
+                        <td>b1</td>
+                        <td>b2</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">总移动距离(m)</td>
+                        <td id="1_a1_zjl"></td>
+                        <td id="1_a2_zjl"></td>
+                        <td id="1_b1_zjl"></td>
+                        <td id="1_b2_zjl"></td>
+                    </tr>
+                    <tr>
+
+                        <td style="width: 20%;">平均速度(m/s)</td>
+                        <td id="1_a1_pjsd"></td>
+                        <td id="1_a2_pjsd"></td>
+                        <td id="1_b1_pjsd"></td>
+                        <td id="1_b2_pjsd"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">最高速度(m/s)</td>
+                        <td id="1_a1_zgsd"></td>
+                        <td id="1_a2_zgsd"></td>
+                        <td id="1_b1_zgsd"></td>
+                        <td id="1_b2_zgsd"></td>
+                    </tr>
+                </table>
+                <div class="column" id="column">
+                    <div id="chart_1" class="chart1"></div>
+                </div>
+            </div>
+        </div>
+        <div id="box2" style="display: none;">
+            <div class="distribution" style="background-image: url(./playground_2.jpg);">
+
+            </div>
+            <div class="text">
+                <div class="player">
+                    a vs b
+                </div>
+                <table>
+                    <tr>
+                        <td style="width: 20%;">统计</td>
+                        <td>a1</td>
+                        <td>a2</td>
+                        <td>b1</td>
+                        <td>b2</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">总移动距离</td>
+                        <td id="2_a1_zjl"></td>
+                        <td id="2_a2_zjl"></td>
+                        <td id="2_b1_zjl"></td>
+                        <td id="2_b2_zjl"></td>
+                    </tr>
+                    <tr>
+
+                        <td style="width: 20%;">平均速度</td>
+                        <td id="2_a1_pjsd"></td>
+                        <td id="2_a2_pjsd"></td>
+                        <td id="2_b1_pjsd"></td>
+                        <td id="2_b2_pjsd"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">最高速度</td>
+                        <td id="2_a1_zgsd"></td>
+                        <td id="2_a2_zgsd"></td>
+                        <td id="2_b1_zgsd"></td>
+                        <td id="2_b2_zgsd"></td>
+                    </tr>
+                </table>
+                <div class="column" id="column2">
+                    <div id="chart_2" class="chart"></div>
+                </div>
+            </div>
+        </div>
+        <div id="box3" style="display: none;">
+            <div class="distribution" style="background-image: url(./playground_3.jpg);">
+
+            </div>
+            <div class="text">
+                <div class="player">
+                    a vs b
+                </div>
+                <table>
+                    <tr>
+                        <td style="width: 20%;">统计</td>
+                        <td>a1</td>
+                        <td>a2</td>
+                        <td>b1</td>
+                        <td>b2</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">总移动距离</td>
+                        <td id="3_a1_zjl"></td>
+                        <td id="3_a2_zjl"></td>
+                        <td id="3_b1_zjl"></td>
+                        <td id="3_b2_zjl"></td>
+                    </tr>
+                    <tr>
+
+                        <td style="width: 20%;">平均速度</td>
+                        <td id="3_a1_pjsd"></td>
+                        <td id="3_a2_pjsd"></td>
+                        <td id="3_b1_pjsd"></td>
+                        <td id="3_b2_pjsd"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">最高速度</td>
+                        <td id="3_a1_zgsd"></td>
+                        <td id="3_a2_zgsd"></td>
+                        <td id="3_b1_zgsd"></td>
+                        <td id="3_b2_zgsd"></td>
+                    </tr>
+                </table>
+                <div class="column" id="column3">
+                    <div id="chart_3" class="chart"></div>
+                </div>
+            </div>
+        </div>
+        <div id="box4" style="display: none;">
+            <div class="distribution" style="background-image: url(./playground_4.jpg);">
+
+            </div>
+            <div class="text">
+                <div class="player">
+                    a vs b
+                </div>
+                <table>
+                    <tr>
+                        <td style="width: 20%;">统计</td>
+                        <td>a1</td>
+                        <td>a2</td>
+                        <td>b1</td>
+                        <td>b2</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">总移动距离</td>
+                        <td id="4_a1_zjl"></td>
+                        <td id="4_a2_zjl"></td>
+                        <td id="4_b1_zjl"></td>
+                        <td id="4_b2_zjl"></td>
+                    </tr>
+                    <tr>
+
+                        <td style="width: 20%;">平均速度</td>
+                        <td id="4_a1_pjsd"></td>
+                        <td id="4_a2_pjsd"></td>
+                        <td id="4_b1_pjsd"></td>
+                        <td id="4_b2_pjsd"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">最高速度</td>
+                        <td id="4_a1_zgsd"></td>
+                        <td id="4_a2_zgsd"></td>
+                        <td id="4_b1_zgsd"></td>
+                        <td id="4_b2_zgsd"></td>
+                    </tr>
+                </table>
+                <div class="column" id="column4">
+                    <div id="chart_4" class="chart"></div>
+                </div>
+            </div>
+        </div>
+        <div id="box5" style="display: none;">
+            <div class="distribution" style="background-image: url(./playground_5.jpg);">
+
+            </div>
+            <div class="text">
+                <div class="player">
+                    a vs b
+                </div>
+                <table>
+                    <tr>
+                        <td style="width: 20%;">统计</td>
+                        <td>a1</td>
+                        <td>a2</td>
+                        <td>b1</td>
+                        <td>b2</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">总移动距离</td>
+                        <td id="5_a1_zjl"></td>
+                        <td id="5_a2_zjl"></td>
+                        <td id="5_b1_zjl"></td>
+                        <td id="5_b2_zjl"></td>
+                    </tr>
+                    <tr>
+
+                        <td style="width: 20%;">平均速度</td>
+                        <td id="5_a1_pjsd"></td>
+                        <td id="5_a2_pjsd"></td>
+                        <td id="5_b1_pjsd"></td>
+                        <td id="5_b2_pjsd"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">最高速度</td>
+                        <td id="5_a1_zgsd"></td>
+                        <td id="5_a2_zgsd"></td>
+                        <td id="5_b1_zgsd"></td>
+                        <td id="5_b2_zgsd"></td>
+                    </tr>
+                </table>
+                <div class="column" id="column5">
+                    <div id="chart_5" class="chart"></div>
+                </div>
+            </div>
+        </div>
+        <div id="box6" style="display: none;">
+            <div class="distribution" style="background-image: url(./playground_6.jpg);">
+
+            </div>
+            <div class="text">
+                <div class="player">
+                    a vs b
+                </div>
+                <table>
+                    <tr>
+                        <td style="width: 20%;">统计</td>
+                        <td>a1</td>
+                        <td>a2</td>
+                        <td>b1</td>
+                        <td>b2</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">总移动距离</td>
+                        <td id="6_a1_zjl"></td>
+                        <td id="6_a2_zjl"></td>
+                        <td id="6_b1_zjl"></td>
+                        <td id="6_b2_zjl"></td>
+                    </tr>
+                    <tr>
+
+                        <td style="width: 20%;">平均速度</td>
+                        <td id="6_a1_pjsd"></td>
+                        <td id="6_a2_pjsd"></td>
+                        <td id="6_b1_pjsd"></td>
+                        <td id="6_b2_pjsd"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">最高速度</td>
+                        <td id="6_a1_zgsd"></td>
+                        <td id="6_a2_zgsd"></td>
+                        <td id="6_b1_zgsd"></td>
+                        <td id="6_b2_zgsd"></td>
+                    </tr>
+                </table>
+                <div class="column" id="column6">
+                    <div id="chart_6" class="chart"></div>
+                </div>
+            </div>
+        </div>
+        <div id="box7" style="display: none;">
+            <div class="distribution" style="background-image: url(./playground_7.jpg);">
+
+            </div>
+            <div class="text">
+                <div class="player">
+                    a vs b
+                </div>
+                <table>
+                    <tr>
+                        <td style="width: 20%;">统计</td>
+                        <td>a1</td>
+                        <td>a2</td>
+                        <td>b1</td>
+                        <td>b2</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">总移动距离</td>
+                        <td id="7_a1_zjl"></td>
+                        <td id="7_a2_zjl"></td>
+                        <td id="7_b1_zjl"></td>
+                        <td id="7_b2_zjl"></td>
+                    </tr>
+                    <tr>
+
+                        <td style="width: 20%;">平均速度</td>
+                        <td id="7_a1_pjsd"></td>
+                        <td id="7_a2_pjsd"></td>
+                        <td id="7_b1_pjsd"></td>
+                        <td id="7_b2_pjsd"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">最高速度</td>
+                        <td id="7_a1_zgsd"></td>
+                        <td id="7_a2_zgsd"></td>
+                        <td id="7_b1_zgsd"></td>
+                        <td id="7_b2_zgsd"></td>
+                    </tr>
+                </table>
+                <div class="column" id="column7">
+                    <div id="chart_7" class="chart"></div>
+                </div>
+            </div>
+        </div>
+        <div id="box8" style="display: none;">
+            <div class="distribution" style="background-image: url(./playground_8.jpg);">
+
+            </div>
+            <div class="text">
+                <div class="player">
+                    a vs b
+                </div>
+                <table>
+                    <tr>
+                        <td style="width: 20%;">统计</td>
+                        <td>a1</td>
+                        <td>a2</td>
+                        <td>b1</td>
+                        <td>b2</td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">总移动距离</td>
+                        <td id="8_a1_zjl"></td>
+                        <td id="8_a2_zjl"></td>
+                        <td id="8_b1_zjl"></td>
+                        <td id="8_b2_zjl"></td>
+                    </tr>
+                    <tr>
+
+                        <td style="width: 20%;">平均速度</td>
+                        <td id="8_a1_pjsd"></td>
+                        <td id="8_a2_pjsd"></td>
+                        <td id="8_b1_pjsd"></td>
+                        <td id="8_b2_pjsd"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">最高速度</td>
+                        <td id="8_a1_zgsd"></td>
+                        <td id="8_a2_zgsd"></td>
+                        <td id="8_b1_zgsd"></td>
+                        <td id="8_b2_zgsd"></td>
+                    </tr>
+                </table>
+                <div class="column" id="column8">
+                    <div id="chart_8" class="chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script>
+    var btn1 = document.getElementById("btn1");
+    var btn2 = document.getElementById("btn2");
+    var btn3 = document.getElementById("btn3");
+    var btn4 = document.getElementById("btn4");
+    var btn5 = document.getElementById("btn5");
+    var btn6 = document.getElementById("btn6");
+    var btn7 = document.getElementById("btn7");
+    var btn8 = document.getElementById("btn8");
+    btn1.onclick = function() {
+        document.getElementById('box1').style.display = "block";
+        document.getElementById('box2').style.display = "none";
+        document.getElementById('box3').style.display = "none";
+        document.getElementById('box4').style.display = "none";
+        document.getElementById('box5').style.display = "none";
+        document.getElementById('box6').style.display = "none";
+        document.getElementById('box7').style.display = "none";
+        document.getElementById('box8').style.display = "none";
+    };
+    btn2.onclick = function() {
+        document.getElementById('box1').style.display = "none";
+        document.getElementById('box2').style.display = "block";
+        document.getElementById('box3').style.display = "none";
+        document.getElementById('box4').style.display = "none";
+        document.getElementById('box5').style.display = "none";
+        document.getElementById('box6').style.display = "none";
+        document.getElementById('box7').style.display = "none";
+        document.getElementById('box8').style.display = "none";
+    };
+    btn3.onclick = function() {
+        document.getElementById('box1').style.display = "none";
+        document.getElementById('box2').style.display = "none";
+        document.getElementById('box3').style.display = "block";
+        document.getElementById('box4').style.display = "none";
+        document.getElementById('box5').style.display = "none";
+        document.getElementById('box6').style.display = "none";
+        document.getElementById('box7').style.display = "none";
+        document.getElementById('box8').style.display = "none";
+    };
+    btn4.onclick = function() {
+        document.getElementById('box1').style.display = "none";
+        document.getElementById('box2').style.display = "none";
+        document.getElementById('box3').style.display = "none";
+        document.getElementById('box4').style.display = "block";
+        document.getElementById('box5').style.display = "none";
+        document.getElementById('box6').style.display = "none";
+        document.getElementById('box7').style.display = "none";
+        document.getElementById('box8').style.display = "none";
+    };
+    btn5.onclick = function() {
+        document.getElementById('box1').style.display = "none";
+        document.getElementById('box2').style.display = "none";
+        document.getElementById('box3').style.display = "none";
+        document.getElementById('box4').style.display = "none";
+        document.getElementById('box5').style.display = "block";
+        document.getElementById('box6').style.display = "none";
+        document.getElementById('box7').style.display = "none";
+        document.getElementById('box8').style.display = "none";
+    };
+    btn6.onclick = function() {
+        document.getElementById('box1').style.display = "none";
+        document.getElementById('box2').style.display = "none";
+        document.getElementById('box3').style.display = "none";
+        document.getElementById('box4').style.display = "none";
+        document.getElementById('box5').style.display = "none";
+        document.getElementById('box6').style.display = "block";
+        document.getElementById('box7').style.display = "none";
+        document.getElementById('box8').style.display = "none";
+    };
+    btn7.onclick = function() {
+        document.getElementById('box1').style.display = "none";
+        document.getElementById('box2').style.display = "none";
+        document.getElementById('box3').style.display = "none";
+        document.getElementById('box4').style.display = "none";
+        document.getElementById('box5').style.display = "none";
+        document.getElementById('box6').style.display = "none";
+        document.getElementById('box7').style.display = "block";
+        document.getElementById('box8').style.display = "none";
+    };
+    btn8.onclick = function() {
+        document.getElementById('box1').style.display = "none";
+        document.getElementById('box2').style.display = "none";
+        document.getElementById('box3').style.display = "none";
+        document.getElementById('box4').style.display = "none";
+        document.getElementById('box5').style.display = "none";
+        document.getElementById('box6').style.display = "none";
+        document.getElementById('box7').style.display = "none";
+        document.getElementById('box8').style.display = "block";
+    };
+</script>
+
+</html>
