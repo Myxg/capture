@@ -4,32 +4,28 @@ import json
 import math
 import numpy as np
 import pymysql
+import time
+import copy
+from multiprocessing import Process, Manager
 
 # Create your views here.
 
 
 def home(request):
+    s = time.time()
     data = {'data': []}
     for count_num in range(1, 9):
-        zjl = []
-        pjsd = []
-        zgsu = []
-        fb = []
-        list_all = []
+
         db = pymysql.connect('localhost', 'root', '000000', 'data')
         cursor = db.cursor()
-        sql = 'select frame_num,people_num,x,y from zb' + str(
-            count_num) + ' where frame_num<' + str(count_num) + "9999" + ' and frame_num > ' + str(count_num) + "0000"
-        # print(sql)
+        sql = 'select frame_num,people_num,x,y from zb' + str(count_num) + ' where frame_num<' + str(count_num) + "3000" + ' and frame_num > ' + str(count_num) + "0000"
         cursor.execute(sql)
-        result = cursor.fetchone()
-        while result != None:
-            result = list(result)
-            list_all.append(result)
-            result = cursor.fetchone()
+        result = cursor.fetchall()
+
         db.close()
+        list_all = list(result)
+
         list1 = list_all[:]
-        # print(list1)
         A1 = []
         A2 = []
         B1 = []
@@ -136,48 +132,69 @@ def home(request):
         average_a2 = round(distance_a2 / time_a2, 2)
         average_b1 = round(distance_b1 / time_b1, 2)
         average_b2 = round(distance_b2 / time_b2, 2)
-        speed_a1.sort()
-        speed_a2.sort()
-        speed_b1.sort()
-        speed_b2.sort()
-        max_speed_a1 = round(speed_a1[-1], 2)
-        max_speed_a2 = round(speed_a2[-1], 2)
-        max_speed_b1 = round(speed_b1[-1], 2)
-        max_speed_b2 = round(speed_b2[-1], 2)
+        ma1 = copy.deepcopy(speed_a1)
+        ma2 = copy.deepcopy(speed_a2)
+        mb1 = copy.deepcopy(speed_b1)
+        mb2 = copy.deepcopy(speed_b2)
+        ma1.sort()
+        ma2.sort()
+        mb1.sort()
+        mb2.sort()
+        # print(type(ma1), ma1)
+        max_speed_a1 = round(ma1[-1], 2)
+        max_speed_a2 = round(ma2[-1], 2)
+        max_speed_b1 = round(mb1[-1], 2)
+        max_speed_b2 = round(mb2[-1], 2)
         distribute_a1 = []
         distribute_a2 = []
         distribute_b1 = []
         distribute_b2 = []
-        for j in range(5):
+        for j in range(4):
             x = [i for i in speed_a1 if j < i < j + 1]
             distribute_a1.append(len(x))
-        x = [i for i in speed_a1 if 5 < i]
+        x = [i for i in speed_a1 if 4 < i]
         distribute_a1.append(len(x))
-        for j in range(5):
+        for j in range(4):
             x = [i for i in speed_a2 if j < i < j + 1]
             distribute_a2.append(len(x))
-        x = [i for i in speed_a2 if 5 < i]
+        x = [i for i in speed_a2 if 4 < i]
         distribute_a2.append(len(x))
-        for j in range(5):
+        for j in range(4):
             x = [i for i in speed_b1 if j < i < j + 1]
             distribute_b1.append(len(x))
-        x = [i for i in speed_b1 if 5 < i]
+        x = [i for i in speed_b1 if 4 < i]
         distribute_b1.append(len(x))
-        for j in range(5):
+        for j in range(4):
             x = [i for i in speed_b2 if j < i < j + 1]
             distribute_b2.append(len(x))
-        x = [i for i in speed_b2 if 5 < i]
+        x = [i for i in speed_b2 if 4 < i]
         distribute_b2.append(len(x))
-
         zjl = [distance_a1, distance_a2, distance_b1, distance_b2]
         pjsd = [average_a1, average_a2, average_b1, average_b2]
         zgsd = [max_speed_a1, max_speed_a2, max_speed_b1, max_speed_b2]
         fb = [{'name': 'a1', 'data': distribute_a1}, {'name': 'a2', 'data': distribute_a2},
               {'name': 'b1', 'data': distribute_b1}, {'name': 'b2', 'data': distribute_b2}]
-        page = [count_num, zjl, pjsd, zgsd, fb]
+        speed = [{'name': 'a1', 'data': speed_a1}, {'name': 'a2', 'data': speed_a2},
+              {'name': 'b1', 'data': speed_b1}, {'name': 'b2', 'data': speed_b2}]
+        page = [count_num, zjl, pjsd, zgsd, fb, speed]
         data['data'].append(page)
-    # print(data)
+        # print(data)
+
     response = HttpResponse(json.dumps(data))
     response["Access-Control-Allow-Origin"] = "*"
+    response["Access-Control-Allow-Methods"] = "POST, GET, OPTIONS"
+    response["Access-Control-Max-Age"] = "1000"
+    response["Access-Control-Allow-Headers"] = " * "
+    e = time.time()
+    # print(e-s)
     return response
+
+
+
+
+
+
+
+
+
 

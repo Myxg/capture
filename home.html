@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <!-- <meta http-equiv="refresh" content="10"> -->
     <!-- <link rel="stylesheet" href="./css/ewChart.min.css"> -->
     <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
     <script type="text/javascript" src="js/highcharts.js"></script>
@@ -89,35 +90,51 @@
             margin: 5px auto;
         }
         
+        .img_box {
+            width: 310px;
+            float: left;
+        }
+        
+        .distribution_title {
+            margin-top: 10px;
+            width: 305px;
+            height: auto;
+            font-size: 26px;
+        }
+        
         .distribution {
             float: left;
             width: 305px;
             height: 670px;
-            margin: 10px 30px;
+            margin-top: 10px;
             border: 3px #000 solid;
+            background-size: 100%;
+            background-repeat: no-repeat;
         }
         
         .text {
-            margin: 10px 50px;
-            float: right;
-            width: 60%;
+            /* margin: 10px 50px; */
+            float: left;
+            width: 78%;
             height: 700px;
             background-color: #fff;
         }
         
         .player {
-            width: 100%;
+            width: 33%;
             height: 100px;
             font-size: 25px;
             line-height: 100px;
-            margin: 10px auto;
+            /* margin: 10px auto; */
             /* background-color: blueviolet; */
         }
         
         table {
             /* background-color: antiquewhite; */
-            width: 100%;
-            height: 200px;
+            margin-left: 30px;
+            float: left;
+            width: 30%;
+            height: 600px;
             border-right: 1px solid #000;
             border-bottom: 1px solid #000;
         }
@@ -128,14 +145,23 @@
         }
         
         .column {
-            width: 100%;
-            height: 360px;
-            background-color: #fff;
             margin-top: 20px;
+            float: right;
+            width: 65%;
+            height: 300px;
+            background-color: #fff;
         }
         
         .chart {
-            width: 48%;
+            width: 41%;
+        }
+        
+        .line {
+            margin-top: -10px;
+            float: right;
+            width: 65%;
+            height: 310px;
+            background-color: #fff;
         }
         /* .column2 {
             width: 100%;
@@ -143,6 +169,78 @@
             background-color: #fff;
             margin-top: 20px;
         } */
+        
+        @media screen and (max-width: 1024px) {
+            h1 {
+                height: 20px;
+            }
+            button {
+                width: 9%;
+                height: 35px;
+                margin: 0px 10px;
+                border-radius: 15px;
+            }
+            .img_box {
+                width: 250px;
+                float: left;
+            }
+            .distribution_title {
+                margin-top: 5px;
+                width: 260px;
+                height: auto;
+                font-size: 22px;
+            }
+            .distribution {
+                float: left;
+                width: 240px;
+                height: 528px;
+                margin-top: 5px;
+                border: 3px #000 solid;
+                background-size: 100%;
+                background-repeat: no-repeat;
+            }
+            .text {
+                /* margin: 10px 50px; */
+                float: left;
+                width: 69%;
+                height: 595px;
+                background-color: #fff;
+            }
+            .player {
+                width: 40%;
+                height: 79px;
+                font-size: 25px;
+                line-height: 80px;
+                /* margin: 10px auto; */
+                /* background-color: blueviolet; */
+            }
+            table {
+                /* background-color: antiquewhite; */
+                margin-left: 10px;
+                float: left;
+                width: 35%;
+                height: 480px;
+                border-right: 1px solid #000;
+                border-bottom: 1px solid #000;
+            }
+            .column {
+                margin-top: 20px;
+                float: right;
+                width: 60%;
+                height: 270px;
+                background-color: #fff;
+            }
+            .chart {
+                width: 33%;
+            }
+            .line {
+                margin-top: -60px;
+                float: right;
+                width: 60%;
+                height: 270px;
+                background-color: #fff;
+            }
+        }
     </style>
 </head>
 
@@ -158,52 +256,61 @@
         <button id="btn7">七号场地</button>
         <button id="btn8">八号场地</button>
         <div id="box1" style="display: block;">
-            <div class="distribution" style="background-image: url(./playground_1.jpg);">
-
+            <div class="img_box">
+                <div class="distribution_title">5分钟运动轨迹</div>
+                <div class="distribution" style="background-image: url(./playground_1.jpg);"></div>
             </div>
+
             <div class="text">
                 <div class="player">
                     a vs b
                 </div>
                 <table>
                     <tr>
-                        <td style="width: 20%;">统计</td>
-                        <td>a1</td>
-                        <td>a2</td>
-                        <td>b1</td>
-                        <td>b2</td>
+                        <td style="width: 20%;font-size: 16px;">十分钟运动统计</td>
+                        <td>总移动距离(m)</td>
+                        <td>平均速度(m/s)</td>
+                        <td>最高速度(m/s)</td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">总移动距离(m)</td>
+                        <td style="width: 20%;">a1</td>
                         <td id="1_a1_zjl"></td>
-                        <td id="1_a2_zjl"></td>
-                        <td id="1_b1_zjl"></td>
-                        <td id="1_b2_zjl"></td>
+                        <td id="1_a1_pjsd"></td>
+                        <td id="1_a1_zgsd"></td>
                     </tr>
                     <tr>
 
-                        <td style="width: 20%;">平均速度(m/s)</td>
-                        <td id="1_a1_pjsd"></td>
+                        <td style="width: 20%;">a2</td>
+                        <td id="1_a2_zjl"></td>
                         <td id="1_a2_pjsd"></td>
-                        <td id="1_b1_pjsd"></td>
-                        <td id="1_b2_pjsd"></td>
+                        <td id="1_a2_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">最高速度(m/s)</td>
-                        <td id="1_a1_zgsd"></td>
-                        <td id="1_a2_zgsd"></td>
+                        <td style="width: 20%;">b1</td>
+                        <td id="1_b1_zjl"></td>
+                        <td id="1_b1_pjsd"></td>
                         <td id="1_b1_zgsd"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">b2</td>
+                        <td id="1_b2_zjl"></td>
+                        <td id="1_b2_pjsd"></td>
                         <td id="1_b2_zgsd"></td>
                     </tr>
                 </table>
+                <div class="line" id="line">
+                    <div id="line_1" class="chart1"></div>
+                </div>
                 <div class="column" id="column">
                     <div id="chart_1" class="chart1"></div>
                 </div>
+
             </div>
         </div>
         <div id="box2" style="display: none;">
-            <div class="distribution" style="background-image: url(./playground_2.jpg);">
-
+            <div class="img_box">
+                <div class="distribution_title">5分钟运动轨迹</div>
+                <div class="distribution" style="background-image: url(./playground_2.jpg);"></div>
             </div>
             <div class="text">
                 <div class="player">
@@ -211,43 +318,50 @@
                 </div>
                 <table>
                     <tr>
-                        <td style="width: 20%;">统计</td>
-                        <td>a1</td>
-                        <td>a2</td>
-                        <td>b1</td>
-                        <td>b2</td>
+                        <td style="width: 20%;">十分钟运动统计</td>
+                        <td>总移动距离(m)</td>
+                        <td>平均速度(m/s)</td>
+                        <td>最高速度(m/s)</td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">总移动距离</td>
+                        <td style="width: 20%;">a1</td>
                         <td id="2_a1_zjl"></td>
-                        <td id="2_a2_zjl"></td>
-                        <td id="2_b1_zjl"></td>
-                        <td id="2_b2_zjl"></td>
+                        <td id="2_a1_pjsd"></td>
+                        <td id="2_a1_zgsd"></td>
                     </tr>
                     <tr>
 
-                        <td style="width: 20%;">平均速度</td>
-                        <td id="2_a1_pjsd"></td>
+                        <td style="width: 20%;">a2</td>
+                        <td id="2_a2_zjl"></td>
                         <td id="2_a2_pjsd"></td>
-                        <td id="2_b1_pjsd"></td>
-                        <td id="2_b2_pjsd"></td>
+                        <td id="2_a2_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">最高速度</td>
-                        <td id="2_a1_zgsd"></td>
-                        <td id="2_a2_zgsd"></td>
+                        <td style="width: 20%;">b1</td>
+                        <td id="2_b1_zjl"></td>
+                        <td id="2_b1_pjsd"></td>
                         <td id="2_b1_zgsd"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">b2</td>
+                        <td id="2_b2_zjl"></td>
+                        <td id="2_b2_pjsd"></td>
                         <td id="2_b2_zgsd"></td>
                     </tr>
                 </table>
+                <div class="line" id="line2">
+                    <div id="line_2" class="chart"></div>
+                </div>
                 <div class="column" id="column2">
                     <div id="chart_2" class="chart"></div>
                 </div>
+
             </div>
         </div>
         <div id="box3" style="display: none;">
-            <div class="distribution" style="background-image: url(./playground_3.jpg);">
-
+            <div class="img_box">
+                <div class="distribution_title">5分钟运动轨迹</div>
+                <div class="distribution" style="background-image: url(./playground_3.jpg);"></div>
             </div>
             <div class="text">
                 <div class="player">
@@ -255,43 +369,50 @@
                 </div>
                 <table>
                     <tr>
-                        <td style="width: 20%;">统计</td>
-                        <td>a1</td>
-                        <td>a2</td>
-                        <td>b1</td>
-                        <td>b2</td>
+                        <td style="width: 20%;">十分钟运动统计</td>
+                        <td>总移动距离(m)</td>
+                        <td>平均速度(m/s)</td>
+                        <td>最高速度(m/s)</td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">总移动距离</td>
+                        <td style="width: 20%;">a1</td>
                         <td id="3_a1_zjl"></td>
-                        <td id="3_a2_zjl"></td>
-                        <td id="3_b1_zjl"></td>
-                        <td id="3_b2_zjl"></td>
+                        <td id="3_a1_pjsd"></td>
+                        <td id="3_a1_zgsd"></td>
                     </tr>
                     <tr>
 
-                        <td style="width: 20%;">平均速度</td>
-                        <td id="3_a1_pjsd"></td>
+                        <td style="width: 20%;">a2</td>
+                        <td id="3_a2_zjl"></td>
                         <td id="3_a2_pjsd"></td>
-                        <td id="3_b1_pjsd"></td>
-                        <td id="3_b2_pjsd"></td>
+                        <td id="3_a2_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">最高速度</td>
-                        <td id="3_a1_zgsd"></td>
-                        <td id="3_a2_zgsd"></td>
+                        <td style="width: 20%;">b1</td>
+                        <td id="3_b1_zjl"></td>
+                        <td id="3_b1_pjsd"></td>
                         <td id="3_b1_zgsd"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">b2</td>
+                        <td id="3_b2_zjl"></td>
+                        <td id="3_b2_pjsd"></td>
                         <td id="3_b2_zgsd"></td>
                     </tr>
                 </table>
+                <div class="line" id="line3">
+                    <div id="line_3" class="chart"></div>
+                </div>
                 <div class="column" id="column3">
                     <div id="chart_3" class="chart"></div>
                 </div>
+
             </div>
         </div>
         <div id="box4" style="display: none;">
-            <div class="distribution" style="background-image: url(./playground_4.jpg);">
-
+            <div class="img_box">
+                <div class="distribution_title">5分钟运动轨迹</div>
+                <div class="distribution" style="background-image: url(./playground_4.jpg);"></div>
             </div>
             <div class="text">
                 <div class="player">
@@ -299,43 +420,50 @@
                 </div>
                 <table>
                     <tr>
-                        <td style="width: 20%;">统计</td>
-                        <td>a1</td>
-                        <td>a2</td>
-                        <td>b1</td>
-                        <td>b2</td>
+                        <td style="width: 20%;">十分钟运动统计</td>
+                        <td>总移动距离(m)</td>
+                        <td>平均速度(m/s)</td>
+                        <td>最高速度(m/s)</td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">总移动距离</td>
+                        <td style="width: 20%;">a1</td>
                         <td id="4_a1_zjl"></td>
-                        <td id="4_a2_zjl"></td>
-                        <td id="4_b1_zjl"></td>
-                        <td id="4_b2_zjl"></td>
+                        <td id="4_a1_pjsd"></td>
+                        <td id="4_a1_zgsd"></td>
                     </tr>
                     <tr>
 
-                        <td style="width: 20%;">平均速度</td>
-                        <td id="4_a1_pjsd"></td>
+                        <td style="width: 20%;">a2</td>
+                        <td id="4_a2_zjl"></td>
                         <td id="4_a2_pjsd"></td>
-                        <td id="4_b1_pjsd"></td>
-                        <td id="4_b2_pjsd"></td>
+                        <td id="4_a2_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">最高速度</td>
-                        <td id="4_a1_zgsd"></td>
-                        <td id="4_a2_zgsd"></td>
+                        <td style="width: 20%;">b1</td>
+                        <td id="4_b1_zjl"></td>
+                        <td id="4_b1_pjsd"></td>
                         <td id="4_b1_zgsd"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">b2</td>
+                        <td id="4_b2_zjl"></td>
+                        <td id="4_b2_pjsd"></td>
                         <td id="4_b2_zgsd"></td>
                     </tr>
                 </table>
+                <div class="line" id="line4">
+                    <div id="line_4" class="chart"></div>
+                </div>
                 <div class="column" id="column4">
                     <div id="chart_4" class="chart"></div>
                 </div>
+
             </div>
         </div>
         <div id="box5" style="display: none;">
-            <div class="distribution" style="background-image: url(./playground_5.jpg);">
-
+            <div class="img_box">
+                <div class="distribution_title">5分钟运动轨迹</div>
+                <div class="distribution" style="background-image: url(./playground_5.jpg);"></div>
             </div>
             <div class="text">
                 <div class="player">
@@ -343,43 +471,50 @@
                 </div>
                 <table>
                     <tr>
-                        <td style="width: 20%;">统计</td>
-                        <td>a1</td>
-                        <td>a2</td>
-                        <td>b1</td>
-                        <td>b2</td>
+                        <td style="width: 20%;">十分钟运动统计</td>
+                        <td>总移动距离(m)</td>
+                        <td>平均速度(m/s)</td>
+                        <td>最高速度(m/s)</td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">总移动距离</td>
+                        <td style="width: 20%;">a1</td>
                         <td id="5_a1_zjl"></td>
-                        <td id="5_a2_zjl"></td>
-                        <td id="5_b1_zjl"></td>
-                        <td id="5_b2_zjl"></td>
+                        <td id="5_a1_pjsd"></td>
+                        <td id="5_a1_zgsd"></td>
                     </tr>
                     <tr>
 
-                        <td style="width: 20%;">平均速度</td>
-                        <td id="5_a1_pjsd"></td>
+                        <td style="width: 20%;">a2</td>
+                        <td id="5_a2_zjl"></td>
                         <td id="5_a2_pjsd"></td>
-                        <td id="5_b1_pjsd"></td>
-                        <td id="5_b2_pjsd"></td>
+                        <td id="5_a2_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">最高速度</td>
-                        <td id="5_a1_zgsd"></td>
-                        <td id="5_a2_zgsd"></td>
+                        <td style="width: 20%;">b1</td>
+                        <td id="5_b1_zjl"></td>
+                        <td id="5_b1_pjsd"></td>
                         <td id="5_b1_zgsd"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">b2</td>
+                        <td id="5_b2_zjl"></td>
+                        <td id="5_b2_pjsd"></td>
                         <td id="5_b2_zgsd"></td>
                     </tr>
                 </table>
+                <div class="line" id="line5">
+                    <div id="line_5" class="chart"></div>
+                </div>
                 <div class="column" id="column5">
                     <div id="chart_5" class="chart"></div>
                 </div>
+
             </div>
         </div>
         <div id="box6" style="display: none;">
-            <div class="distribution" style="background-image: url(./playground_6.jpg);">
-
+            <div class="img_box">
+                <div class="distribution_title">5分钟运动轨迹</div>
+                <div class="distribution" style="background-image: url(./playground_6.jpg);"></div>
             </div>
             <div class="text">
                 <div class="player">
@@ -387,43 +522,50 @@
                 </div>
                 <table>
                     <tr>
-                        <td style="width: 20%;">统计</td>
-                        <td>a1</td>
-                        <td>a2</td>
-                        <td>b1</td>
-                        <td>b2</td>
+                        <td style="width: 20%;">十分钟运动统计</td>
+                        <td>总移动距离(m)</td>
+                        <td>平均速度(m/s)</td>
+                        <td>最高速度(m/s)</td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">总移动距离</td>
+                        <td style="width: 20%;">a1</td>
                         <td id="6_a1_zjl"></td>
-                        <td id="6_a2_zjl"></td>
-                        <td id="6_b1_zjl"></td>
-                        <td id="6_b2_zjl"></td>
+                        <td id="6_a1_pjsd"></td>
+                        <td id="6_a1_zgsd"></td>
                     </tr>
                     <tr>
 
-                        <td style="width: 20%;">平均速度</td>
-                        <td id="6_a1_pjsd"></td>
+                        <td style="width: 20%;">a2</td>
+                        <td id="6_a2_zjl"></td>
                         <td id="6_a2_pjsd"></td>
-                        <td id="6_b1_pjsd"></td>
-                        <td id="6_b2_pjsd"></td>
+                        <td id="6_a2_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">最高速度</td>
-                        <td id="6_a1_zgsd"></td>
-                        <td id="6_a2_zgsd"></td>
+                        <td style="width: 20%;">b1</td>
+                        <td id="6_b1_zjl"></td>
+                        <td id="6_b1_pjsd"></td>
                         <td id="6_b1_zgsd"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">b2</td>
+                        <td id="6_b2_zjl"></td>
+                        <td id="6_b2_pjsd"></td>
                         <td id="6_b2_zgsd"></td>
                     </tr>
                 </table>
+                <div class="line" id="line6">
+                    <div id="line_6" class="chart"></div>
+                </div>
                 <div class="column" id="column6">
                     <div id="chart_6" class="chart"></div>
                 </div>
+
             </div>
         </div>
         <div id="box7" style="display: none;">
-            <div class="distribution" style="background-image: url(./playground_7.jpg);">
-
+            <div class="img_box">
+                <div class="distribution_title">5分钟运动轨迹</div>
+                <div class="distribution" style="background-image: url(./playground_7.jpg);"></div>
             </div>
             <div class="text">
                 <div class="player">
@@ -431,43 +573,50 @@
                 </div>
                 <table>
                     <tr>
-                        <td style="width: 20%;">统计</td>
-                        <td>a1</td>
-                        <td>a2</td>
-                        <td>b1</td>
-                        <td>b2</td>
+                        <td style="width: 20%;">十分钟运动统计</td>
+                        <td>总移动距离(m)</td>
+                        <td>平均速度(m/s)</td>
+                        <td>最高速度(m/s)</td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">总移动距离</td>
+                        <td style="width: 20%;">a1</td>
                         <td id="7_a1_zjl"></td>
-                        <td id="7_a2_zjl"></td>
-                        <td id="7_b1_zjl"></td>
-                        <td id="7_b2_zjl"></td>
+                        <td id="7_a1_pjsd"></td>
+                        <td id="7_a1_zgsd"></td>
                     </tr>
                     <tr>
 
-                        <td style="width: 20%;">平均速度</td>
-                        <td id="7_a1_pjsd"></td>
+                        <td style="width: 20%;">a2</td>
+                        <td id="7_a2_zjl"></td>
                         <td id="7_a2_pjsd"></td>
-                        <td id="7_b1_pjsd"></td>
-                        <td id="7_b2_pjsd"></td>
+                        <td id="7_a2_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">最高速度</td>
-                        <td id="7_a1_zgsd"></td>
-                        <td id="7_a2_zgsd"></td>
+                        <td style="width: 20%;">b1</td>
+                        <td id="7_b1_zjl"></td>
+                        <td id="7_b1_pjsd"></td>
                         <td id="7_b1_zgsd"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">b2</td>
+                        <td id="7_b2_zjl"></td>
+                        <td id="7_b2_pjsd"></td>
                         <td id="7_b2_zgsd"></td>
                     </tr>
                 </table>
+                <div class="line" id="line7">
+                    <div id="line_7" class="chart"></div>
+                </div>
                 <div class="column" id="column7">
                     <div id="chart_7" class="chart"></div>
                 </div>
+
             </div>
         </div>
         <div id="box8" style="display: none;">
-            <div class="distribution" style="background-image: url(./playground_8.jpg);">
-
+            <div class="img_box">
+                <div class="distribution_title">5分钟运动轨迹</div>
+                <div class="distribution" style="background-image: url(./playground_8.jpg);"></div>
             </div>
             <div class="text">
                 <div class="player">
@@ -475,38 +624,44 @@
                 </div>
                 <table>
                     <tr>
-                        <td style="width: 20%;">统计</td>
-                        <td>a1</td>
-                        <td>a2</td>
-                        <td>b1</td>
-                        <td>b2</td>
+                        <td style="width: 20%;">十分钟运动统计</td>
+                        <td>总移动距离(m)</td>
+                        <td>平均速度(m/s)</td>
+                        <td>最高速度(m/s)</td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">总移动距离</td>
+                        <td style="width: 20%;">a1</td>
                         <td id="8_a1_zjl"></td>
-                        <td id="8_a2_zjl"></td>
-                        <td id="8_b1_zjl"></td>
-                        <td id="8_b2_zjl"></td>
+                        <td id="8_a1_pjsd"></td>
+                        <td id="8_a1_zgsd"></td>
                     </tr>
                     <tr>
 
-                        <td style="width: 20%;">平均速度</td>
-                        <td id="8_a1_pjsd"></td>
+                        <td style="width: 20%;">a2</td>
+                        <td id="8_a2_zjl"></td>
                         <td id="8_a2_pjsd"></td>
-                        <td id="8_b1_pjsd"></td>
-                        <td id="8_b2_pjsd"></td>
+                        <td id="8_a2_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">最高速度</td>
-                        <td id="8_a1_zgsd"></td>
-                        <td id="8_a2_zgsd"></td>
+                        <td style="width: 20%;">b1</td>
+                        <td id="8_b1_zjl"></td>
+                        <td id="8_b1_pjsd"></td>
                         <td id="8_b1_zgsd"></td>
+                    </tr>
+                    <tr>
+                        <td style="width: 20%;">b2</td>
+                        <td id="8_b2_zjl"></td>
+                        <td id="8_b2_pjsd"></td>
                         <td id="8_b2_zgsd"></td>
                     </tr>
                 </table>
+                <div class="line" id="line8">
+                    <div id="line_8" class="chart"></div>
+                </div>
                 <div class="column" id="column8">
                     <div id="chart_8" class="chart"></div>
                 </div>
+
             </div>
         </div>
     </div>

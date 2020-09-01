@@ -47,7 +47,7 @@ for count_num in range(1, 9):
     image_data = np.asarray(image)
     green = (0,255,0)
     balck = (65,105,225)
-    blue = (0,0,255)
+    blue = (144,238,144)
     red = (255,0,0)
     n = 0
     while n < length:

@@ -43,7 +43,7 @@ $(document).ready(function() {
         async: "false",
         data: {},
         success: function(data) {
-
+            console.log(data)
             var data1 = data['data'][0]
             var data2 = data['data'][1]
             var data3 = data['data'][2]
@@ -64,6 +64,7 @@ $(document).ready(function() {
             var zjl1 = data1[1]
             var pjsd1 = data1[2]
             var zgsd1 = data1[3]
+            var zxt = data1[5]
             var fb2 = data2[4]
             var zjl2 = data2[1]
             var pjsd2 = data2[2]
@@ -203,13 +204,13 @@ $(document).ready(function() {
                 chart: {
                     renderTo: 'chart_1',
                     type: 'column',
-                    height: 350,
+                    height: 280,
                 },
                 title: {
-                    text: '三十分钟速度分布'
+                    text: '十分钟速度分布'
                 },
                 xAxis: {
-                    categories: ['0~1(m/s)', '1~2(m/s)', '2~3(m/s)', '3~4(m/s)', '4~5(m/s)', '>5(m/s)']
+                    categories: ['0~1(m/s)', '1~2(m/s)', '2~3(m/s)', '3~4(m/s)', '>4(m/s)']
                 },
                 yAxis: {
                     title: {
@@ -218,14 +219,33 @@ $(document).ready(function() {
                 },
                 series: fb1
             });
+            line1 = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'line_1',
+                    type: 'line',
+                    height: 280,
+                },
+                title: {
+                    text: '十分钟速度变化'
+                },
+                xAxis: {
+                    categories: []
+                },
+                yAxis: {
+                    title: {
+                        text: ''
+                    }
+                },
+                series: zxt
+            });
             chart2 = new Highcharts.Chart({
                 chart: {
                     renderTo: 'chart_2',
                     type: 'column',
-                    height: 350,
+                    height: 280,
                 },
                 title: {
-                    text: '三十分钟速度分布'
+                    text: '十分钟速度分布'
                 },
                 xAxis: {
                     categories: ['0~1(m/s)', '1~2(m/s)', '2~3(m/s)', '3~4(m/s)', '4~5(m/s)', '>5(m/s)']
@@ -237,14 +257,33 @@ $(document).ready(function() {
                 },
                 series: fb2
             });
+            line2 = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'line_2',
+                    type: 'line',
+                    height: 280,
+                },
+                title: {
+                    text: '十分钟速度变化'
+                },
+                xAxis: {
+                    categories: []
+                },
+                yAxis: {
+                    title: {
+                        text: ''
+                    }
+                },
+                series: zxt
+            });
             chart3 = new Highcharts.Chart({
                 chart: {
                     renderTo: 'chart_3',
                     type: 'column',
-                    height: 350,
+                    height: 280,
                 },
                 title: {
-                    text: '三十分钟速度分布'
+                    text: '十分钟速度分布'
                 },
                 xAxis: {
                     categories: ['0~1(m/s)', '1~2(m/s)', '2~3(m/s)', '3~4(m/s)', '4~5(m/s)', '>5(m/s)']
@@ -256,14 +295,33 @@ $(document).ready(function() {
                 },
                 series: fb3
             });
+            line3 = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'line_3',
+                    type: 'line',
+                    height: 280,
+                },
+                title: {
+                    text: '十分钟速度变化'
+                },
+                xAxis: {
+                    categories: []
+                },
+                yAxis: {
+                    title: {
+                        text: ''
+                    }
+                },
+                series: zxt
+            });
             chart4 = new Highcharts.Chart({
                 chart: {
                     renderTo: 'chart_4',
                     type: 'column',
-                    height: 350,
+                    height: 280,
                 },
                 title: {
-                    text: '三十分钟速度分布'
+                    text: '十分钟速度分布'
                 },
                 xAxis: {
                     categories: ['0~1(m/s)', '1~2(m/s)', '2~3(m/s)', '3~4(m/s)', '4~5(m/s)', '>5(m/s)']
@@ -275,14 +333,33 @@ $(document).ready(function() {
                 },
                 series: fb4
             });
+            line4 = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'line_4',
+                    type: 'line',
+                    height: 280,
+                },
+                title: {
+                    text: '十分钟速度变化'
+                },
+                xAxis: {
+                    categories: []
+                },
+                yAxis: {
+                    title: {
+                        text: ''
+                    }
+                },
+                series: zxt
+            });
             chart5 = new Highcharts.Chart({
                 chart: {
                     renderTo: 'chart_5',
                     type: 'column',
-                    height: 350,
+                    height: 280,
                 },
                 title: {
-                    text: '三十分钟速度分布'
+                    text: '十分钟速度分布'
                 },
                 xAxis: {
                     categories: ['0~1(m/s)', '1~2(m/s)', '2~3(m/s)', '3~4(m/s)', '4~5(m/s)', '>5(m/s)']
@@ -294,14 +371,33 @@ $(document).ready(function() {
                 },
                 series: fb5
             });
+            line5 = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'line_5',
+                    type: 'line',
+                    height: 280,
+                },
+                title: {
+                    text: '十分钟速度变化'
+                },
+                xAxis: {
+                    categories: []
+                },
+                yAxis: {
+                    title: {
+                        text: ''
+                    }
+                },
+                series: zxt
+            });
             chart6 = new Highcharts.Chart({
                 chart: {
                     renderTo: 'chart_6',
                     type: 'column',
-                    height: 350,
+                    height: 280,
                 },
                 title: {
-                    text: '三十分钟速度分布'
+                    text: '十分钟速度分布'
                 },
                 xAxis: {
                     categories: ['0~1(m/s)', '1~2(m/s)', '2~3(m/s)', '3~4(m/s)', '4~5(m/s)', '>5(m/s)']
@@ -313,14 +409,33 @@ $(document).ready(function() {
                 },
                 series: fb6
             });
+            line6 = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'line_6',
+                    type: 'line',
+                    height: 280,
+                },
+                title: {
+                    text: '十分钟速度变化'
+                },
+                xAxis: {
+                    categories: []
+                },
+                yAxis: {
+                    title: {
+                        text: ''
+                    }
+                },
+                series: zxt
+            });
             chart7 = new Highcharts.Chart({
                 chart: {
                     renderTo: 'chart_7',
                     type: 'column',
-                    height: 350,
+                    height: 280,
                 },
                 title: {
-                    text: '三十分钟速度分布'
+                    text: '十分钟速度分布'
                 },
                 xAxis: {
                     categories: ['0~1(m/s)', '1~2(m/s)', '2~3(m/s)', '3~4(m/s)', '4~5(m/s)', '>5(m/s)']
@@ -332,14 +447,33 @@ $(document).ready(function() {
                 },
                 series: fb7
             });
+            line7 = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'line_7',
+                    type: 'line',
+                    height: 280,
+                },
+                title: {
+                    text: '十分钟速度变化'
+                },
+                xAxis: {
+                    categories: []
+                },
+                yAxis: {
+                    title: {
+                        text: ''
+                    }
+                },
+                series: zxt
+            });
             chart8 = new Highcharts.Chart({
                 chart: {
                     renderTo: 'chart_8',
                     type: 'column',
-                    height: 350,
+                    height: 280,
                 },
                 title: {
-                    text: '三十分钟速度分布'
+                    text: '十分钟速度分布'
                 },
                 xAxis: {
                     categories: ['0~1(m/s)', '1~2(m/s)', '2~3(m/s)', '3~4(m/s)', '4~5(m/s)', '>5(m/s)']
@@ -351,46 +485,27 @@ $(document).ready(function() {
                 },
                 series: fb8
             });
-
+            line8 = new Highcharts.Chart({
+                chart: {
+                    renderTo: 'line_8',
+                    type: 'line',
+                    height: 280,
+                },
+                title: {
+                    text: '十分钟速度变化'
+                },
+                xAxis: {
+                    categories: []
+                },
+                yAxis: {
+                    title: {
+                        text: ''
+                    }
+                },
+                series: zxt
+            });
         },
         error: function() { console.log('2') }
     });
 
-    // First chart initialization
-    // chart1 = new Highcharts.Chart({
-    //     chart: {
-    //         renderTo: 'chart_1',
-    //         type: 'column',
-    //         height: 350,
-    //     },
-    //     title: {
-    //         text: '三十分钟速度分布'
-    //     },
-    //     xAxis: {
-    //         categories: ['0~1(m/s)', '1~2(m/s)', '2~3(m/s)', '3~4(m/s)', '4~5(m/s)', '>5(m/s)']
-    //     },
-    //     yAxis: {
-    //         title: {
-    //             text: ''
-    //         }
-    //     },
-    //     series: [{
-    //         name: 'a1',
-    //         data: [5, 10, 20, 22, 25, 28]
-    //     }, {
-    //         name: 'a2',
-    //         data: [15, 15, 18, 40, 30, 25]
-    //     }, {
-    //         name: 'b1',
-    //         data: [1, 3, 6, 0, 50, 25]
-    //     }, {
-    //         name: 'b2',
-    //         data: [1, 3, 6, 0, 50, 25]
-    //     }]
-    // });
-
-    // $('.switcher').click(function() {
-    //     var newType = $(this).attr('id');
-    //     ChangeChartType(chart1, chart1.series, newType);
-    // });
 });
