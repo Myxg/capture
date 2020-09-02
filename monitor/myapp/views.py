@@ -178,7 +178,7 @@ def home(request):
               {'name': 'b1', 'data': speed_b1}, {'name': 'b2', 'data': speed_b2}]
         page = [count_num, zjl, pjsd, zgsd, fb, speed]
         data['data'].append(page)
-        # print(data)
+    print(type(data))
 
     response = HttpResponse(json.dumps(data))
     response["Access-Control-Allow-Origin"] = "*"
@@ -186,7 +186,7 @@ def home(request):
     response["Access-Control-Max-Age"] = "1000"
     response["Access-Control-Allow-Headers"] = " * "
     e = time.time()
-    # print(e-s)
+    print(e-s)
     return response
 
 

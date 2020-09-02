@@ -10,7 +10,7 @@ for count_num in range(1, 9):
     cursor = db.cursor()
     # sql = 'select frame_num,people_num,x,y from zb1 where frame_num>"10755" and frame_num<"10995"'
     sql = 'select frame_num,people_num,x,y from zb' + str(
-        count_num) + ' where frame_num<' + str(count_num) + "1500" + ' and frame_num > ' + str(count_num) + "0000"
+        count_num) + ' where frame_num<' + str(count_num) + "3000" + ' and frame_num > ' + str(count_num) + "0000"
     cursor.execute(sql)
     result = cursor.fetchone()
     while result != None:

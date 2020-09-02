@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <!-- <meta http-equiv="refresh" content="10"> -->
     <!-- <link rel="stylesheet" href="./css/ewChart.min.css"> -->
     <script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
@@ -123,10 +124,20 @@
         .player {
             width: 33%;
             height: 100px;
-            font-size: 25px;
+            font-size: 20px;
             line-height: 100px;
-            /* margin: 10px auto; */
+            margin-left: 30px;
             /* background-color: blueviolet; */
+        }
+        
+        .name {
+            width: 40%;
+            float: left;
+        }
+        
+        .vs {
+            width: 10%;
+            float: left;
         }
         
         table {
@@ -163,12 +174,6 @@
             height: 310px;
             background-color: #fff;
         }
-        /* .column2 {
-            width: 100%;
-            height: 360px;
-            background-color: #fff;
-            margin-top: 20px;
-        } */
         
         @media screen and (max-width: 1024px) {
             h1 {
@@ -207,12 +212,27 @@
                 background-color: #fff;
             }
             .player {
-                width: 40%;
+                width: 38%;
                 height: 79px;
-                font-size: 25px;
-                line-height: 80px;
-                /* margin: 10px auto; */
+                font-size: 13px;
+                line-height: 60px;
+                margin-left: 0px;
                 /* background-color: blueviolet; */
+            }
+            .name {
+                width: 100%;
+                float: left;
+                line-height: 100%;
+                font-size: 20px;
+                margin: 5px auto;
+            }
+            .vs {
+                width: 100%;
+                font-size: 18px;
+                float: left;
+                line-height: 100%;
+                margin: 0 auto;
+                text-align: center;
             }
             table {
                 /* background-color: antiquewhite; */
@@ -241,58 +261,156 @@
                 background-color: #fff;
             }
         }
+        
+        @media screen and (max-width: 500px) {
+            .box {
+                border-radius: 15px;
+                border: 1px #fff solid;
+                box-shadow: 1px 1px 1px #0f0c0c;
+                margin: 25px auto;
+                background-color: #ffffff;
+                text-align: center;
+                width: 90%;
+                height: 1920px;
+            }
+            h1 {
+                height: 20px;
+            }
+            button {
+                width: 15%;
+                height: 40px;
+                margin: 5px 10px;
+                border-radius: 15px;
+            }
+            .img_box {
+                width: 100%;
+                float: left;
+            }
+            .distribution_title {
+                margin-top: 5px;
+                width: 100%;
+                height: auto;
+                font-size: 22px;
+            }
+            .distribution {
+                margin: 5px 22px;
+                float: left;
+                width: 240px;
+                height: 528px;
+                border: 3px #000 solid;
+                background-size: 100%;
+                background-repeat: no-repeat;
+            }
+            .text {
+                /* margin: 10px 50px; */
+                float: left;
+                width: 100%;
+                height: 595px;
+                background-color: #fff;
+            }
+            .player {
+                width: 100%;
+                height: 79px;
+                font-size: 13px;
+                line-height: 60px;
+                margin-left: 0px;
+            }
+            .name {
+                width: 100%;
+                float: left;
+                line-height: 100%;
+                font-size: 20px;
+                margin: 5px auto;
+            }
+            .vs {
+                width: 100%;
+                font-size: 18px;
+                float: left;
+                line-height: 100%;
+                margin: 0 auto;
+                text-align: center;
+            }
+            table {
+                /* background-color: antiquewhite; */
+                margin-left: 0px;
+                float: left;
+                width: 100%;
+                height: 480px;
+                border-right: 1px solid #000;
+                border-bottom: 1px solid #000;
+            }
+            .column {
+                margin-top: 20px;
+                float: right;
+                width: 100%;
+                height: 270px;
+                background-color: #fff;
+            }
+            .chart {
+                width: 78%;
+            }
+            .line {
+                margin-top: 20px;
+                float: right;
+                width: 100%;
+                height: 270px;
+                background-color: #fff;
+            }
+        }
     </style>
 </head>
 
 <body>
     <div class="box">
-        <h1>训练监控</h1>
-        <button id="btn1">一号场地</button>
-        <button id="btn2">二号场地</button>
-        <button id="btn3">三号场地</button>
-        <button id="btn4">四号场地</button>
-        <button id="btn5">五号场地</button>
-        <button id="btn6">六号场地</button>
-        <button id="btn7">七号场地</button>
-        <button id="btn8">八号场地</button>
+        <h1>训练监控(10分钟)</h1>
+        <button id="btn1" value="1">一号场地</button>
+        <button id="btn2" value="2">二号场地</button>
+        <button id="btn3" value="3">三号场地</button>
+        <button id="btn4" value="4">四号场地</button>
+        <button id="btn5" value="5">五号场地</button>
+        <button id="btn6" value="6">六号场地</button>
+        <button id="btn7" value="7">七号场地</button>
+        <button id="btn8" value="8">八号场地</button>
         <div id="box1" style="display: block;">
             <div class="img_box">
-                <div class="distribution_title">5分钟运动轨迹</div>
+                <div class="distribution_title">运动轨迹</div>
                 <div class="distribution" style="background-image: url(./playground_1.jpg);"></div>
             </div>
 
             <div class="text">
                 <div class="player">
-                    a vs b
+                    <div class="name">李俊慧-刘雨辰</div>
+                    <div class="vs">vs</div>
+                    <div class="name">王懿律-黄凯祥</div>
                 </div>
                 <table>
                     <tr>
-                        <td style="width: 20%;font-size: 16px;">十分钟运动统计</td>
+                        <td style="width: 20%;font-size: 16px;">运动统计</td>
                         <td>总移动距离(m)</td>
                         <td>平均速度(m/s)</td>
                         <td>最高速度(m/s)</td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">a1</td>
+                        <td style="width: 20%;">李俊慧</td>
                         <td id="1_a1_zjl"></td>
                         <td id="1_a1_pjsd"></td>
                         <td id="1_a1_zgsd"></td>
                     </tr>
                     <tr>
 
-                        <td style="width: 20%;">a2</td>
+                        <td style="width: 20%;">刘雨辰</td>
                         <td id="1_a2_zjl"></td>
                         <td id="1_a2_pjsd"></td>
                         <td id="1_a2_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">b1</td>
+                        <td style="width: 20%;">王懿律</td>
                         <td id="1_b1_zjl"></td>
                         <td id="1_b1_pjsd"></td>
                         <td id="1_b1_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">b2</td>
+                        <td style="width: 20%;">黄凯祥</td>
                         <td id="1_b2_zjl"></td>
                         <td id="1_b2_pjsd"></td>
                         <td id="1_b2_zgsd"></td>
@@ -309,41 +427,43 @@
         </div>
         <div id="box2" style="display: none;">
             <div class="img_box">
-                <div class="distribution_title">5分钟运动轨迹</div>
+                <div class="distribution_title">运动轨迹</div>
                 <div class="distribution" style="background-image: url(./playground_2.jpg);"></div>
             </div>
             <div class="text">
                 <div class="player">
-                    a vs b
+                    <div class="name">李俊慧-刘雨辰</div>
+                    <div class="vs">vs</div>
+                    <div class="name">王懿律-黄凯祥</div>
                 </div>
                 <table>
                     <tr>
-                        <td style="width: 20%;">十分钟运动统计</td>
+                        <td style="width: 20%;">运动统计</td>
                         <td>总移动距离(m)</td>
                         <td>平均速度(m/s)</td>
                         <td>最高速度(m/s)</td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">a1</td>
+                        <td style="width: 20%;">李俊慧</td>
                         <td id="2_a1_zjl"></td>
                         <td id="2_a1_pjsd"></td>
                         <td id="2_a1_zgsd"></td>
                     </tr>
                     <tr>
 
-                        <td style="width: 20%;">a2</td>
+                        <td style="width: 20%;">刘雨辰</td>
                         <td id="2_a2_zjl"></td>
                         <td id="2_a2_pjsd"></td>
                         <td id="2_a2_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">b1</td>
+                        <td style="width: 20%;">王懿律</td>
                         <td id="2_b1_zjl"></td>
                         <td id="2_b1_pjsd"></td>
                         <td id="2_b1_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">b2</td>
+                        <td style="width: 20%;">黄凯祥</td>
                         <td id="2_b2_zjl"></td>
                         <td id="2_b2_pjsd"></td>
                         <td id="2_b2_zgsd"></td>
@@ -360,41 +480,43 @@
         </div>
         <div id="box3" style="display: none;">
             <div class="img_box">
-                <div class="distribution_title">5分钟运动轨迹</div>
+                <div class="distribution_title">运动轨迹</div>
                 <div class="distribution" style="background-image: url(./playground_3.jpg);"></div>
             </div>
             <div class="text">
                 <div class="player">
-                    a vs b
+                    <div class="name">李俊慧-刘雨辰</div>
+                    <div class="vs">vs</div>
+                    <div class="name">王懿律-黄凯祥</div>
                 </div>
                 <table>
                     <tr>
-                        <td style="width: 20%;">十分钟运动统计</td>
+                        <td style="width: 20%;">运动统计</td>
                         <td>总移动距离(m)</td>
                         <td>平均速度(m/s)</td>
                         <td>最高速度(m/s)</td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">a1</td>
+                        <td style="width: 20%;">李俊慧</td>
                         <td id="3_a1_zjl"></td>
                         <td id="3_a1_pjsd"></td>
                         <td id="3_a1_zgsd"></td>
                     </tr>
                     <tr>
 
-                        <td style="width: 20%;">a2</td>
+                        <td style="width: 20%;">刘雨辰</td>
                         <td id="3_a2_zjl"></td>
                         <td id="3_a2_pjsd"></td>
                         <td id="3_a2_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">b1</td>
+                        <td style="width: 20%;">王懿律</td>
                         <td id="3_b1_zjl"></td>
                         <td id="3_b1_pjsd"></td>
                         <td id="3_b1_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">b2</td>
+                        <td style="width: 20%;">黄凯祥</td>
                         <td id="3_b2_zjl"></td>
                         <td id="3_b2_pjsd"></td>
                         <td id="3_b2_zgsd"></td>
@@ -411,41 +533,43 @@
         </div>
         <div id="box4" style="display: none;">
             <div class="img_box">
-                <div class="distribution_title">5分钟运动轨迹</div>
+                <div class="distribution_title">运动轨迹</div>
                 <div class="distribution" style="background-image: url(./playground_4.jpg);"></div>
             </div>
             <div class="text">
                 <div class="player">
-                    a vs b
+                    <div class="name">李俊慧-刘雨辰</div>
+                    <div class="vs">vs</div>
+                    <div class="name">王懿律-黄凯祥</div>
                 </div>
                 <table>
                     <tr>
-                        <td style="width: 20%;">十分钟运动统计</td>
+                        <td style="width: 20%;">运动统计</td>
                         <td>总移动距离(m)</td>
                         <td>平均速度(m/s)</td>
                         <td>最高速度(m/s)</td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">a1</td>
+                        <td style="width: 20%;">李俊慧</td>
                         <td id="4_a1_zjl"></td>
                         <td id="4_a1_pjsd"></td>
                         <td id="4_a1_zgsd"></td>
                     </tr>
                     <tr>
 
-                        <td style="width: 20%;">a2</td>
+                        <td style="width: 20%;">刘雨辰</td>
                         <td id="4_a2_zjl"></td>
                         <td id="4_a2_pjsd"></td>
                         <td id="4_a2_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">b1</td>
+                        <td style="width: 20%;">王懿律</td>
                         <td id="4_b1_zjl"></td>
                         <td id="4_b1_pjsd"></td>
                         <td id="4_b1_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">b2</td>
+                        <td style="width: 20%;">黄凯祥</td>
                         <td id="4_b2_zjl"></td>
                         <td id="4_b2_pjsd"></td>
                         <td id="4_b2_zgsd"></td>
@@ -462,41 +586,43 @@
         </div>
         <div id="box5" style="display: none;">
             <div class="img_box">
-                <div class="distribution_title">5分钟运动轨迹</div>
+                <div class="distribution_title">运动轨迹</div>
                 <div class="distribution" style="background-image: url(./playground_5.jpg);"></div>
             </div>
             <div class="text">
                 <div class="player">
-                    a vs b
+                    <div class="name">李俊慧-刘雨辰</div>
+                    <div class="vs">vs</div>
+                    <div class="name">王懿律-黄凯祥</div>
                 </div>
                 <table>
                     <tr>
-                        <td style="width: 20%;">十分钟运动统计</td>
+                        <td style="width: 20%;">运动统计</td>
                         <td>总移动距离(m)</td>
                         <td>平均速度(m/s)</td>
                         <td>最高速度(m/s)</td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">a1</td>
+                        <td style="width: 20%;">李俊慧</td>
                         <td id="5_a1_zjl"></td>
                         <td id="5_a1_pjsd"></td>
                         <td id="5_a1_zgsd"></td>
                     </tr>
                     <tr>
 
-                        <td style="width: 20%;">a2</td>
+                        <td style="width: 20%;">刘雨辰</td>
                         <td id="5_a2_zjl"></td>
                         <td id="5_a2_pjsd"></td>
                         <td id="5_a2_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">b1</td>
+                        <td style="width: 20%;">王懿律</td>
                         <td id="5_b1_zjl"></td>
                         <td id="5_b1_pjsd"></td>
                         <td id="5_b1_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">b2</td>
+                        <td style="width: 20%;">黄凯祥</td>
                         <td id="5_b2_zjl"></td>
                         <td id="5_b2_pjsd"></td>
                         <td id="5_b2_zgsd"></td>
@@ -513,41 +639,43 @@
         </div>
         <div id="box6" style="display: none;">
             <div class="img_box">
-                <div class="distribution_title">5分钟运动轨迹</div>
+                <div class="distribution_title">运动轨迹</div>
                 <div class="distribution" style="background-image: url(./playground_6.jpg);"></div>
             </div>
             <div class="text">
                 <div class="player">
-                    a vs b
+                    <div class="name">李俊慧-刘雨辰</div>
+                    <div class="vs">vs</div>
+                    <div class="name">王懿律-黄凯祥</div>
                 </div>
                 <table>
                     <tr>
-                        <td style="width: 20%;">十分钟运动统计</td>
+                        <td style="width: 20%;">运动统计</td>
                         <td>总移动距离(m)</td>
                         <td>平均速度(m/s)</td>
                         <td>最高速度(m/s)</td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">a1</td>
+                        <td style="width: 20%;">李俊慧</td>
                         <td id="6_a1_zjl"></td>
                         <td id="6_a1_pjsd"></td>
                         <td id="6_a1_zgsd"></td>
                     </tr>
                     <tr>
 
-                        <td style="width: 20%;">a2</td>
+                        <td style="width: 20%;">刘雨辰</td>
                         <td id="6_a2_zjl"></td>
                         <td id="6_a2_pjsd"></td>
                         <td id="6_a2_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">b1</td>
+                        <td style="width: 20%;">王懿律</td>
                         <td id="6_b1_zjl"></td>
                         <td id="6_b1_pjsd"></td>
                         <td id="6_b1_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">b2</td>
+                        <td style="width: 20%;">黄凯祥</td>
                         <td id="6_b2_zjl"></td>
                         <td id="6_b2_pjsd"></td>
                         <td id="6_b2_zgsd"></td>
@@ -564,41 +692,43 @@
         </div>
         <div id="box7" style="display: none;">
             <div class="img_box">
-                <div class="distribution_title">5分钟运动轨迹</div>
+                <div class="distribution_title">运动轨迹</div>
                 <div class="distribution" style="background-image: url(./playground_7.jpg);"></div>
             </div>
             <div class="text">
                 <div class="player">
-                    a vs b
+                    <div class="name">李俊慧-刘雨辰</div>
+                    <div class="vs">vs</div>
+                    <div class="name">王懿律-黄凯祥</div>
                 </div>
                 <table>
                     <tr>
-                        <td style="width: 20%;">十分钟运动统计</td>
+                        <td style="width: 20%;">运动统计</td>
                         <td>总移动距离(m)</td>
                         <td>平均速度(m/s)</td>
                         <td>最高速度(m/s)</td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">a1</td>
+                        <td style="width: 20%;">李俊慧</td>
                         <td id="7_a1_zjl"></td>
                         <td id="7_a1_pjsd"></td>
                         <td id="7_a1_zgsd"></td>
                     </tr>
                     <tr>
 
-                        <td style="width: 20%;">a2</td>
+                        <td style="width: 20%;">刘雨辰</td>
                         <td id="7_a2_zjl"></td>
                         <td id="7_a2_pjsd"></td>
                         <td id="7_a2_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">b1</td>
+                        <td style="width: 20%;">王懿律</td>
                         <td id="7_b1_zjl"></td>
                         <td id="7_b1_pjsd"></td>
                         <td id="7_b1_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">b2</td>
+                        <td style="width: 20%;">黄凯祥</td>
                         <td id="7_b2_zjl"></td>
                         <td id="7_b2_pjsd"></td>
                         <td id="7_b2_zgsd"></td>
@@ -615,41 +745,43 @@
         </div>
         <div id="box8" style="display: none;">
             <div class="img_box">
-                <div class="distribution_title">5分钟运动轨迹</div>
+                <div class="distribution_title">运动轨迹</div>
                 <div class="distribution" style="background-image: url(./playground_8.jpg);"></div>
             </div>
             <div class="text">
                 <div class="player">
-                    a vs b
+                    <div class="name">李俊慧-刘雨辰</div>
+                    <div class="vs">vs</div>
+                    <div class="name">王懿律-黄凯祥</div>
                 </div>
                 <table>
                     <tr>
-                        <td style="width: 20%;">十分钟运动统计</td>
+                        <td style="width: 20%;">运动统计</td>
                         <td>总移动距离(m)</td>
                         <td>平均速度(m/s)</td>
                         <td>最高速度(m/s)</td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">a1</td>
+                        <td style="width: 20%;">李俊慧</td>
                         <td id="8_a1_zjl"></td>
                         <td id="8_a1_pjsd"></td>
                         <td id="8_a1_zgsd"></td>
                     </tr>
                     <tr>
 
-                        <td style="width: 20%;">a2</td>
+                        <td style="width: 20%;">刘雨辰</td>
                         <td id="8_a2_zjl"></td>
                         <td id="8_a2_pjsd"></td>
                         <td id="8_a2_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">b1</td>
+                        <td style="width: 20%;">王懿律</td>
                         <td id="8_b1_zjl"></td>
                         <td id="8_b1_pjsd"></td>
                         <td id="8_b1_zgsd"></td>
                     </tr>
                     <tr>
-                        <td style="width: 20%;">b2</td>
+                        <td style="width: 20%;">黄凯祥</td>
                         <td id="8_b2_zjl"></td>
                         <td id="8_b2_pjsd"></td>
                         <td id="8_b2_zgsd"></td>
