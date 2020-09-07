@@ -172,10 +172,10 @@ def home(request):
     zjl = [distance_a1, distance_a2, distance_b1, distance_b2]
     pjsd = [average_a1, average_a2, average_b1, average_b2]
     zgsd = [max_speed_a1, max_speed_a2, max_speed_b1, max_speed_b2]
-    fb = [{'name': 'a1', 'data': distribute_a1}, {'name': 'a2', 'data': distribute_a2},
-          {'name': 'b1', 'data': distribute_b1}, {'name': 'b2', 'data': distribute_b2}]
-    speed = [{'name': 'a1', 'data': speed_a1}, {'name': 'a2', 'data': speed_a2},
-          {'name': 'b1', 'data': speed_b1}, {'name': 'b2', 'data': speed_b2}]
+    fb = [{'name': '刘玄炫', 'data': distribute_a1}, {'name': '夏玉婷', 'data': distribute_a2},
+          {'name': '金昭映', 'data': distribute_b1}, {'name': '孔熙容', 'data': distribute_b2}]
+    speed = [{'name': '刘玄炫', 'data': speed_a1}, {'name': '夏玉婷', 'data': speed_a2},
+          {'name': '金昭映', 'data': speed_b1}, {'name': '孔熙容', 'data': speed_b2}]
     page = [count_num, zjl, pjsd, zgsd, fb, speed]
     data['data'].append(page)
 
